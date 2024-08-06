@@ -1,0 +1,5 @@
+/include
+/vs/*
+!/vs/LiteDocs.sln
+!/vs/LiteDocs.vcxproj
+!/vs/LiteDocs.vcxproj.filters
