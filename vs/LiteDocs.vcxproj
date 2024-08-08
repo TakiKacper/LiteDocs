@@ -19,10 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\main_nogui.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\source\litedocs.hpp" />
+    <ClInclude Include="..\litedocs\litedocs.hpp" />
+    <ClInclude Include="..\litedocs\source\content_gen.hpp" />
+    <ClInclude Include="..\litedocs\source\head_gen.hpp" />
+    <ClInclude Include="..\litedocs\source\navbar_gen.hpp" />
+    <ClInclude Include="..\litedocs\source\project.hpp" />
+    <ClInclude Include="..\litedocs\source\sidebar_gen.hpp" />
+    <ClInclude Include="..\litedocs\source\syntax_highlighting.hpp" />
+    <ClInclude Include="..\litedocs\source\utility.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -99,7 +106,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Projekty\LiteDocs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,7 +138,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Projekty\LiteDocs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

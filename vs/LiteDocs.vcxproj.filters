@@ -1,16 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="source">
+    <Filter Include="litedocs">
       <UniqueIdentifier>{7fa1adc6-f13d-4a37-875d-a194b3b420a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="litedocs\source">
+      <UniqueIdentifier>{30ca35c5-f026-4522-95e9-77e96cb3a303}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\source\litedocs.hpp">
-      <Filter>source</Filter>
+    <ClCompile Include="..\main_nogui.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\litedocs\litedocs.hpp">
+      <Filter>litedocs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\litedocs\source\project.hpp">
+      <Filter>litedocs\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\litedocs\source\utility.hpp">
+      <Filter>litedocs\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\litedocs\source\content_gen.hpp">
+      <Filter>litedocs\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\litedocs\source\head_gen.hpp">
+      <Filter>litedocs\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\litedocs\source\navbar_gen.hpp">
+      <Filter>litedocs\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\litedocs\source\sidebar_gen.hpp">
+      <Filter>litedocs\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\litedocs\source\syntax_highlighting.hpp">
+      <Filter>litedocs\source</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
