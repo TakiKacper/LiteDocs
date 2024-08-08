@@ -69,7 +69,7 @@ const std::string litedocs_internal::head_format = R"(
             overflow-y: auto;
         }
         .content {
-            width: 75%;
+            width: 85%;
             padding: 20px;
 			padding-left: 60px;
             overflow-y: auto;
@@ -99,6 +99,15 @@ const std::string litedocs_internal::head_format = R"(
         }
         .sidebar ul ul li a {
             padding: 5px 10px;
+        }
+        .code_border {
+            border: 2px solid #026562;
+            border-radius: 5px;
+            background-color: #1E1E1E;
+            padding: 20px;
+            width: fit-screen; 
+            margin: 20px 40px 0px 0px;
+            font-family: Arial, sans-serif;
         }
     </style>
 )";

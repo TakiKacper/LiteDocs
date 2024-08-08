@@ -14,7 +14,7 @@ namespace litedocs_internal
 		initialize_html_marks()
 		{
 			html_marks_override.syntax_highlighting = higlight_syntax;
-			html_marks_override.code_block_marks = { "<fieldset><pre><code>", "</code></pre></fieldset>" };
+			html_marks_override.code_block_marks = { " <div class=\"code_border\"><pre><code>", "</code></pre></div>" };
 		}
 	};
 	initialize_html_marks _initialize_html_marks{};
