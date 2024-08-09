@@ -148,7 +148,7 @@ bool litedocs::generate_docs(
 
 		out_stream << "</head>";
 
-		out_stream << "<body bgcolor=" << project.background_color << " >";
+		out_stream << "<body bgcolor=" << project.content_background << " >";
 		out_stream << navbar;
 		out_stream << "<div class=\"main\">";
 		out_stream << sidebar;

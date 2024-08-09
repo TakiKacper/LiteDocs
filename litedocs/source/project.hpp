@@ -18,10 +18,16 @@ namespace litedocs_internal
 		std::string site_language_tag;
 
 		std::string navbar_color;
+
 		std::string sidebar_text_color;
 		std::string sidebar_hover_color;
 		std::string sidebar_background;
-		std::string background_color;
+
+		std::string content_text_color;
+		std::string content_background;
+
+		std::string code_block_frame_color;
+		std::string code_block_background;
 
 		std::vector<page_order_node> pages_order;
 	};
@@ -47,16 +53,28 @@ namespace litedocs_internal
 			auto style = project_json.at("style");
 
 			project.navbar_color = style.at("navbar_color");
+
 			project.sidebar_text_color = style.at("sidebar_text_color");
 			project.sidebar_hover_color = style.at("sidebar_hover_color");
 			project.sidebar_background = style.at("sidebar_background");
-			project.background_color = style.at("background_color");
 
-			if (!is_good_hex_color(project.navbar_color)) { message("Error: Invalid navbar color");				return false; }
-			if (!is_good_hex_color(project.sidebar_text_color)) { message("Error: Invalid sidebar text color");			return false; }
+			project.content_text_color = style.at("content_text_color");
+			project.content_background = style.at("content_background");
+
+			project.code_block_frame_color = style.at("code_block_frame_color");
+			project.code_block_background = style.at("code_block_background");
+
+			if (!is_good_hex_color(project.navbar_color))		 { message("Error: Invalid navbar color");				return false; }
+
+			if (!is_good_hex_color(project.sidebar_text_color))  { message("Error: Invalid sidebar text color");		return false; }
 			if (!is_good_hex_color(project.sidebar_hover_color)) { message("Error: Invalid sidebar hover color");		return false; }
-			if (!is_good_hex_color(project.sidebar_background)) { message("Error: Invalid sidebar background color");	return false; }
-			if (!is_good_hex_color(project.background_color)) { message("Error: Invalid background color");			return false; }
+			if (!is_good_hex_color(project.sidebar_background))  { message("Error: Invalid sidebar background color");	return false; }
+
+			if (!is_good_hex_color(project.content_text_color))	 { message("Error: Invalid content text color");		return false; }
+			if (!is_good_hex_color(project.content_background))  { message("Error: Invalid content background color");	return false; }
+
+			if (!is_good_hex_color(project.code_block_frame_color)) { message("Error: Invalid code block background color");	return false; }
+			if (!is_good_hex_color(project.code_block_background))	{ message("Error: Invalid code block background");	return false; }
 
 			//Pages order
 			auto pages = project_json.at("pages_order");

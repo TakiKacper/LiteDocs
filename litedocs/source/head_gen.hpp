@@ -11,10 +11,13 @@ namespace litedocs_internal
             {
                 &project.site_language_tag,
                 &project.name,
+                &project.content_text_color,
                 &project.navbar_color,
                 &project.sidebar_background,
                 &project.sidebar_text_color,
-                &project.sidebar_hover_color
+                &project.sidebar_hover_color,
+                &project.code_block_frame_color,
+                &project.code_block_background
             }
         );
     }
@@ -24,10 +27,13 @@ namespace litedocs_internal
 Args order:
     site lang tag
     project name
+    content text color
     navbar bg color
     sidebar bg color
     sidebar text color
     sidebar hover color
+    code block frame color
+    code block background color
 */
 const std::string litedocs_internal::head_format = R"(
 <!--Generate Head-->
@@ -41,6 +47,7 @@ const std::string litedocs_internal::head_format = R"(
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            color: {};
         }
         .navbar {
             width: 100%;
@@ -67,6 +74,7 @@ const std::string litedocs_internal::head_format = R"(
             padding: 20px;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
             overflow-y: auto;
+            margin-right: 20px;
         }
         .content {
             width: 85%;
@@ -101,9 +109,10 @@ const std::string litedocs_internal::head_format = R"(
             padding: 5px 10px;
         }
         .code_border {
-            border: 2px solid #026562;
+            border: 2px solid {};
             border-radius: 5px;
-            background-color: #1E1E1E;
+            background-color: {};
+            overflow-x: auto;
             padding: 20px;
             width: fit-screen; 
             margin: 20px 40px 0px 0px;
