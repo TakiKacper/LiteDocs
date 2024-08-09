@@ -24,19 +24,26 @@ namespace litedocs_internal
 	*/
 	struct highlighting_rules
 	{
-		struct rule { virtual ~rule() {}; };
+		struct rule 
+		{ 
+			std::string color;
+			virtual ~rule() {}; 
+		};
 
 		struct keywords_rule : public rule
 		{
 			std::unordered_set<std::string> keywords;
-			std::string color;
 		};
 
 		struct pairs_rule : public rule
 		{
 			std::string begin;
 			std::string end;
-			std::string color;
+		};
+
+		struct regex_rule : public rule
+		{
+			std::regex regex;	
 		};
 
 		std::vector<rule*> rules;
@@ -88,6 +95,17 @@ namespace litedocs_internal
 
 					rule_obj->begin = rule.at("begin");
 					rule_obj->end = rule.at("end");
+					rule_obj->color = rule.at("color");
+
+					if (!is_good_hex_color(rule_obj->color))
+						throw std::exception("Invalid color");
+				}
+				else if (rule.at("type") == "regex")
+				{
+					auto rule_obj = new highlighting_rules::regex_rule;
+					hg->rules.push_back(rule_obj);
+
+					rule_obj->regex = rule.at("regex");
 					rule_obj->color = rule.at("color");
 
 					if (!is_good_hex_color(rule_obj->color))
@@ -249,6 +267,19 @@ namespace litedocs_internal
 			return false;
 		};
 
+		auto handle_regex_rule = [&](highlighting_rules::regex_rule* r, std::string& token) -> bool
+		{
+			if (!std::regex_match(token, r->regex)) return false;
+
+			ss << "<span style=\"color:";
+			ss << r->color;
+			ss << ";\">";
+			ss << token;
+			ss << "</span>";
+
+			return true;
+		};
+
 		while (iterator < code_end)
 		{
 			auto token = get_token();
@@ -269,6 +300,15 @@ namespace litedocs_internal
 
 				if (as_pairs_rule != nullptr)
 					if (handle_pairs_rule(as_pairs_rule, token))
+					{
+						rule_found = true;
+						break;
+					}
+
+				auto as_regex_rule = dynamic_cast<highlighting_rules::regex_rule*>(rule);
+
+				if (as_regex_rule != nullptr)
+					if (handle_regex_rule(as_regex_rule, token))
 					{
 						rule_found = true;
 						break;

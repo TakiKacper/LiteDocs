@@ -48,6 +48,7 @@ namespace litedocs
 #include <memory>
 #include <unordered_set>
 #include <fstream>
+#include <regex>
 
 #include "source/utility.hpp"
 #include "source/project.hpp"
