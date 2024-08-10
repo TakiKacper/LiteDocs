@@ -21,10 +21,10 @@ namespace litedocs
 		//Sections to which given page belongs
 		//The vector under the pointer may be changed during parsing other pages
 		//So save the file immediately or copy the vector
-		const std::vector<const std::string*>*	sections;
+		const std::vector<const std::string*>*	sections = nullptr;
 
 		//Generated page content in html
-		const std::string*						content;
+		const std::string*						content = nullptr;
 	};
 
 	using save_page_callback = void(*)(generated_page* page, const std::string& project_path);
@@ -141,10 +141,6 @@ bool litedocs::generate_docs(
 		std::stringstream out_stream;
 
 		out_stream << head;
-
-		out_stream << "<base href=\"";
-		out_stream << base;
-		out_stream << "\"/>";
 
 		out_stream << "</head>";
 

@@ -34,6 +34,7 @@ namespace litedocs_internal
 			else
 			{
 				std::stringstream link_stream;
+				link_stream << "/";
 
 				for (auto& upsection : sections)
 					link_stream << *upsection << '/';
