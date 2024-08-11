@@ -9,7 +9,7 @@ namespace litedocs_internal
 		outstream << "<!-- Generate Content -->";
 		outstream << R"(<div class="content">)";
 
-		outstream << markdown_parsing::markdown_to_html(content, html_marks_override);
+		outstream << markdown_parsing::markdown_to_html(content, html_tags_override);
 
 		outstream << R"(</div>)";
 	}

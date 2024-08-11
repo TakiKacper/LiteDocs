@@ -53,21 +53,21 @@ namespace litedocs
 #include "source/utility.hpp"
 #include "source/project.hpp"
 
-//Define global html marks to use when parsing mardkown
+//Define global html tags to use when parsing mardkown
 namespace litedocs_internal
 {
 	std::string higlight_syntax(const std::string&, const std::string&, size_t, size_t);
 
-	markdown_parsing::html_marks html_marks_override {};
-	struct initialize_html_marks
+	markdown_parsing::html_tags html_tags_override {};
+	struct initialize_html_tags
 	{
-		initialize_html_marks()
+		initialize_html_tags()
 		{
-			html_marks_override.syntax_highlighting = higlight_syntax;
-			html_marks_override.code_block_marks = { " <div class=\"code_border\"><pre><code>", "</code></pre></div>" };
+			html_tags_override.syntax_highlighting = higlight_syntax;
+			html_tags_override.code_block_tags = { " <div class=\"code_border\"><pre><code>", "</code></pre></div>" };
 		}
 	};
-	initialize_html_marks _initialize_html_marks{};
+	initialize_html_tags  _initialize_html_tags{};
 }
 
 //Global cache of syntax highlighting rules
