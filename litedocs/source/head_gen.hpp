@@ -13,11 +13,12 @@ namespace litedocs_internal
                 &project.name,
                 &project.content_text_color,
                 &project.navbar_color,
-                &project.sidebar_background,
-                &project.sidebar_text_color,
-                &project.sidebar_hover_color,
                 &project.code_block_frame_color,
-                &project.code_block_background
+                &project.code_block_background,
+                &project.sidebar_background,
+                &project.sidebar_background,
+                & project.sidebar_text_color,
+                & project.sidebar_hover_color,
             }
         );
     }
@@ -29,11 +30,12 @@ Args order:
     project name
     content text color
     navbar bg color
-    sidebar bg color
-    sidebar text color
-    sidebar hover color
     code block frame color
     code block background color
+    sidebar bg color
+    sidebar bg color (again)
+    sidebar text color
+    sidebar hover color
 */
 const std::string litedocs_internal::head_format = R"(
 <!--Generate Head-->
@@ -59,6 +61,9 @@ const std::string litedocs_internal::head_format = R"(
             top: 0;
             left: 0;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         .navbar h1 {
             margin: 0;
@@ -68,6 +73,19 @@ const std::string litedocs_internal::head_format = R"(
             height: calc(100vh - 50px);
             margin-top: 50px;
         }
+        .code_border {
+            border: 2px solid {};
+            border-radius: 5px;
+            background-color: {};
+            overflow-x: auto;
+            padding: 20px;
+            width: fit-screen; 
+            margin: 20px 40px 0px 0px;
+            font-family: Arial, sans-serif;
+        }
+
+    @media (min-width: 768px)
+    {
         .sidebar {
             width: 15%;
             background-color: {};
@@ -82,6 +100,41 @@ const std::string litedocs_internal::head_format = R"(
 			padding-left: 60px;
             overflow-y: auto;
         }
+    }
+    @media (max-width: 768px) 
+    {
+        sidebar {
+            width: 80%;
+            background-color: {};
+
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            margin-right: 20px;
+        }
+        .content {
+            width: 100%;
+            padding: 20px;
+			padding-left: 60px;
+            overflow-y: auto;
+        }
+        .menu-btn {
+            width: 30px;
+            height: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            margin: 0px 30px 0px 0px;
+        }
+        .menu-btn div {
+            width: 100%;
+            height: 4px;
+            background-color: white;
+            border-radius: 2px;
+        }
+    }
+
         .sidebar ul {
             list-style-type: none;
             padding: 0;
@@ -107,16 +160,6 @@ const std::string litedocs_internal::head_format = R"(
         }
         .sidebar ul ul li a {
             padding: 5px 10px;
-        }
-        .code_border {
-            border: 2px solid {};
-            border-radius: 5px;
-            background-color: {};
-            overflow-x: auto;
-            padding: 20px;
-            width: fit-screen; 
-            margin: 20px 40px 0px 0px;
-            font-family: Arial, sans-serif;
         }
     </style>
 )";

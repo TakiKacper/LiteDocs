@@ -3,23 +3,6 @@
 namespace litedocs_internal
 {
 	/*
-		Create custom html marks override and tell it to use higlight_syntax function for syntax higlighting
-	*/
-
-	markdown_parsing::html_marks html_marks_override {};
-	std::string higlight_syntax(const std::string& language_name, const std::string& source, size_t code_begin, size_t code_end);
-
-	struct initialize_html_marks
-	{
-		initialize_html_marks()
-		{
-			html_marks_override.syntax_highlighting = higlight_syntax;
-			html_marks_override.code_block_marks = { " <div class=\"code_border\"><pre><code>", "</code></pre></div>" };
-		}
-	};
-	initialize_html_marks _initialize_html_marks{};
-
-	/*
 		Rules on how to highlight
 	*/
 	struct highlighting_rules
@@ -53,17 +36,6 @@ namespace litedocs_internal
 		{
 			for (auto* _rule : rules)
 				delete _rule;
-		}
-	};
-
-	//Language name to highlighting rules
-	std::unordered_map<std::string, highlighting_rules*> highlighted_languages;
-	struct highlighted_languages_destructor
-	{
-		~highlighted_languages_destructor()
-		{
-			for (auto& x : highlighted_languages)
-				delete x.second;
 		}
 	};
 
@@ -120,6 +92,9 @@ namespace litedocs_internal
 			for (auto& _break : json.at("breaks"))
 				if (_break != "")
 					hg->breaks.push_back(_break);
+
+			std::sort(hg->breaks.begin(), hg->breaks.end(), 
+				[](const std::string& a, const std::string& b) {return a.size() > b.size();});
 		}
 		catch (const std::exception&)
 		{

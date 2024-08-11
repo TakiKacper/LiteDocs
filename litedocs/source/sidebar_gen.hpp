@@ -70,7 +70,7 @@ Args order:
 */
 const std::string litedocs_internal::sidebar_format = R"(
 	<!-- Generate Sidebar-->
-        <div class="sidebar">
+        <div class="sidebar", id="sidebar">
             <ul>
 				{}
             </ul>

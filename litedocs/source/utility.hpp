@@ -42,8 +42,6 @@ namespace litedocs_internal
 
 		while (true)
 		{
-			if (arg_id == args.size()) break;
-
 			search_format_offset = format.find("{}", search_format_offset);
 			if (search_format_offset == format.npos) break;
 

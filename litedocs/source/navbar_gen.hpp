@@ -23,5 +23,10 @@ const std::string litedocs_internal::navbar_format = R"(
     <!--Generate Navbar-->
     <div class="navbar">
         <h1>{}</h1>
+		<div class="menu-btn", onclick="var x = document.getElementById('sidebar'); if (x.style.display == 'block') {x.style.display='none';} else {x.style.display='block';};">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 )";
