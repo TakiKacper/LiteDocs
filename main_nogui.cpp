@@ -1,9 +1,14 @@
 
 #define LITEDOCS_IMPLEMENTATION
 #define MARKDOWN_PARSER_IMPLEMENTATION
+
+//https://github.com/nlohmann/json
 #include "include/nlohmann/json.hpp"
-#include "markdown_parser.hpp"
-#include "source/litedocs.hpp"
+
+//https://github.com/TakiKacper/MarkdownParser
+#include "include/markdown_parser.hpp"
+
+#include "litedocs/litedocs.hpp"
 
 #include <iostream>
 #include <fstream>
