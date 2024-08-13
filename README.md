@@ -3,6 +3,7 @@
 
 LiteDocs is a documentation generator that converts pure markdown into a working html + css websites.  
 See this README generated with LiteDocs:
+<br><br>
 ![This README by LiteDocs!](example/readme_generated.png)
 
 # Features
