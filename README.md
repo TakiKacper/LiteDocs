@@ -9,7 +9,7 @@ LiteDocs is a documentation generator that converts pure markdown into a working
 - Pretty Fast
 
 # Usage
-1. Grab the LiteDocs executable (compile it your self or head to releases)
+1. Grab the LiteDocs executable (compile it yourself or get one in releases tab)
 2. Create a folder for your project
 3. Write your docs in markdown
 4. Add ``[project_name].json`` file to the project folder
