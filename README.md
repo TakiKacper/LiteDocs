@@ -9,11 +9,16 @@ LiteDocs is a documentation generator that converts pure markdown into a working
 - Pretty Fast
 
 # Usage
-1. Grab the LiteDocs executable (compile it yourself or get one in releases tab)
-2. Create a folder for your project
-3. Write your docs in markdown
-4. Add ``[project_name].json`` file to the project folder
-  ```json
+- Grab the LiteDocs executable (compile it yourself or get one in releases tab)
+- Create a folder for your project
+- Write your docs in markdown
+- Add ``[project_name].json`` file to the project folder
+- Configure pages order, colors etc.
+- Run LiteDocs executable
+- Enjoy your sites, saved in ``[your project folder]/build``!
+
+## Example project file
+```json
 {
     "name" : "Example Project",
     "site_language_tag" : "en",
@@ -39,6 +44,6 @@ LiteDocs is a documentation generator that converts pure markdown into a working
     ]
 }
 ```
-4. Configure pages order, colors etc.
-5. Run LiteDocs executable
-6. Enjoy your sites, saved in ``[your project folder]/build``!
+
+## Note
+- Sidebar does only work when website is hosted
