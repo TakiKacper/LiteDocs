@@ -156,10 +156,7 @@ const std::string litedocs_internal::head_format = R"(
         .sidebar ul ul {
             list-style-type: none;
             padding-left: 20px;
-            font-size: 0.9em;
-        }
-        .sidebar ul ul li a {
-            padding: 5px 10px;
+            font-size: 1.0em;
         }
     </style>
 )";

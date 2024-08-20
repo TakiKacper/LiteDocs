@@ -1,0 +1,14 @@
+{
+    "breaks" : [
+        " ", "\t", "\n", ":"
+    ],
+
+    "rules" : [
+        {
+            "type" : "pairs",
+            "begin" : "\n",
+            "end" : ":",
+            "color" : "#00FF00"
+        }
+    ]
+}
