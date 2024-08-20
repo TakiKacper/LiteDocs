@@ -1,0 +1,32 @@
+{
+    "breaks" : [
+        " ", "\t", "\n", "\"", "{", "}", "[", "]", ","
+    ],
+
+    "rules" : [
+        {
+            "type" : "keywords",
+            "keywords" : [":", "{", "}", "[", "]", ","],
+            "color" : "#00AA00"
+        },
+
+        {
+            "type" : "keywords",
+            "keywords" : ["true", "false"],
+            "color" : "#eb6734"
+        },
+    
+        {
+            "type" : "pairs",
+            "begin" : "\"",
+            "end" : "\"",
+            "color" : "#AAAA00"
+        },
+
+        {
+            "type" : "regex",
+            "regex" : "[+-]?([0-9]*[.])?[0-9]+",
+            "color" : "#eb6734"
+        }
+    ]
+}
