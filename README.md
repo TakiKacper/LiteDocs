@@ -4,6 +4,7 @@ LiteDocs is a documentation generator that converts pure markdown into a working
 See this README generated with LiteDocs:
 <br><br>
 ![This README by LiteDocs!](example/readme_generated.png)
+[See the full page here! (Note sidebar won't work on preview)](https://htmlpreview.github.io/?https://github.com/TakiKacper/LiteDocs/blob/main/ReadmeHtml.html)
 
 # Features
 - Easy configuration with single json file per project
