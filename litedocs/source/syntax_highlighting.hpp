@@ -153,7 +153,7 @@ namespace litedocs_internal
 			ss << source.substr(begin, iterator - begin);
 		};
 
-		auto check_should_break = [&](std::string& _break) -> bool
+		auto check_should_break = [&](const std::string& _break) -> bool
 		{
 			if (code_end - iterator < _break.size()) return false;
 
@@ -168,7 +168,7 @@ namespace litedocs_internal
 			return false;
 		};
 
-		std::string* buffor_token = nullptr;
+		const std::string* buffor_token = nullptr;
 
 		auto get_token = [&]()
 		{
@@ -193,6 +193,37 @@ namespace litedocs_internal
 						buffor_token = &b;
 						goto _get_token_return;
 					}
+				iterator++;
+			}
+
+		_get_token_return:
+			return source.substr(begin, iterator - begin);
+		};
+
+		auto get_token_in_pairs = [&](const std::string& _break)
+		{
+			if (buffor_token != nullptr)
+			{
+				iterator += buffor_token->size();
+
+				auto local = buffor_token;
+				buffor_token = nullptr;
+				return *local;
+			}
+
+			size_t begin = iterator;
+
+			bool previous_was_escape = false;
+			while (iterator < code_end)
+			{
+				auto& c = source.at(iterator);
+
+				if (check_should_break(_break) && !previous_was_escape)
+				{
+					buffor_token = &_break;
+					goto _get_token_return;
+				}
+				previous_was_escape = c == '\\';
 				iterator++;
 			}
 
@@ -228,7 +259,7 @@ namespace litedocs_internal
 
 				while (iterator < code_end)
 				{
-					auto token2 = get_token();
+					auto token2 = get_token_in_pairs(r->end);
 					ss << token2;
 
 					if (token2 == r->end) break;
