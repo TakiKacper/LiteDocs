@@ -58,7 +58,7 @@ Adding syntax highlighting for a custom programming language is very easy in Lit
 - Add highlighting rules
 
 Example rules for json code snipets:
-```
+```json
 {
     "breaks" : [
         " ", "\t", "\n", "\"", "{", "}", "[", "]", ","
