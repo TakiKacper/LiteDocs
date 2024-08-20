@@ -1,4 +1,3 @@
-### This project is still in development!
 # LiteDocs
 
 LiteDocs is a documentation generator that converts pure markdown into a working html + css websites.  
